@@ -107,7 +107,7 @@ vendor/bin/phpunit tests
 
 Esta API está desplegada públicamente en Render:
 
-👉 **URL Base:** https://pokeapi-backend-8uiq.onrender.com
+👉 **URL Base:** https://pokeapi-backend-8uiq.onrender.com/pokemon/{idPokemon}
 
 
 ## 👨‍💻 Autor
