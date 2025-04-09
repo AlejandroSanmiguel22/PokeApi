@@ -1,27 +1,29 @@
-# Usamos una imagen oficial de PHP con Apache preinstalado
+# Imagen base oficial de PHP con Apache
 FROM php:8.2-apache
 
-# Activamos el módulo de Apache que permite reescritura de URLs (necesario para .htaccess)
+# Activar mod_rewrite para .htaccess
 RUN a2enmod rewrite
 
-# Cambiamos el DocumentRoot de Apache a la carpeta /public (como en Laravel o proyectos modernos)
-# Así Apache sirve directamente desde /var/www/html/public en lugar de la raíz
+# Cambiar el DocumentRoot para que apunte a /public
 RUN sed -i 's|DocumentRoot /var/www/html|DocumentRoot /var/www/html/public|' /etc/apache2/sites-available/000-default.conf
 
-# Copiamos todo el contenido del proyecto (código fuente, composer.json, etc.) al contenedor
+# Copiar los archivos del proyecto
 COPY . /var/www/html/
 
-# Permitimos que Apache respete las reglas de .htaccess dentro del contenedor
+# Permitir reglas .htaccess
 RUN sed -i '/<Directory \/var\/www\/html\/>/,/<\/Directory>/ s/AllowOverride None/AllowOverride All/' /etc/apache2/apache2.conf
 
-# Traemos Composer desde su imagen oficial para instalar dependencias PHP
+# Instalar git y unzip para evitar errores de composer
+RUN apt-get update && apt-get install -y git unzip
+
+# Traer Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Establecemos el directorio de trabajo donde está el composer.json
+# Establecer el directorio de trabajo donde está composer.json
 WORKDIR /var/www/html
 
-# Instalamos las dependencias del proyecto (incluyendo PHPUnit si lo tienes como dev)
+# Instalar dependencias PHP del proyecto
 RUN composer install
 
-# Exponemos el puerto 80 del contenedor (el que Apache usa)
+# Exponer el puerto de Apache
 EXPOSE 80
