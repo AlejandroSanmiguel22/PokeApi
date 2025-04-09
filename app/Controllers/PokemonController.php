@@ -16,7 +16,8 @@ class PokemonController
     public function show(string $idOrName): array
     {
         try {
-            return $this->service->getPokemon($idOrName);
+            $pokemon = $this->service->getPokemon($idOrName);
+            return $pokemon->toArray();
         } catch (\Exception $e) {
             http_response_code(404);
             return ["error" => $e->getMessage()];
