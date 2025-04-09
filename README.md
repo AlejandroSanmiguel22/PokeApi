@@ -102,6 +102,14 @@ vendor/bin/phpunit tests
 - PHPUnit ^10
 - PokeAPI (consumo externo)
 
+
+## 🌐 API en Producción
+
+Esta API está desplegada públicamente en Render:
+
+👉 **URL Base:** https://pokeapi-backend-8uiq.onrender.com
+
+
 ## 👨‍💻 Autor
 
 Desarrollado por Alejandro Sanmiguel  
