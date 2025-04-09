@@ -4,7 +4,7 @@ API REST desarrollada como prueba técnica para la Universidad CUN. Permite obte
 
 ---
 
-## Endpoint disponible
+## 🚀 Endpoint disponible
 
 ### `GET /pokemon/{id}`
 
@@ -26,7 +26,7 @@ GET http://localhost:8000/pokemon/1
 }
 ```
 
-## Arquitectura del proyecto
+## 🧠 Arquitectura del proyecto
 
 El proyecto sigue una estructura modular inspirada en los principios de Clean Architecture, separando claramente las responsabilidades.
 
@@ -70,23 +70,23 @@ Habilita la reescritura de URLs para soportar rutas limpias sin index.php en la 
 ### tests/
 Incluye pruebas unitarias usando PHPUnit. Asegura que la lógica del PokemonService funcione correctamente.
 
-## Docker
+## 🐳 Docker
 
 El Dockerfile permite levantar el proyecto en cualquier entorno de forma consistente.
 
-### Construcción de imagen
+### 🔧 Construcción de imagen
 ```bash
 docker build -t pokeapi-backend .
 ```
 
-### ▶Ejecución del contenedor
+### ▶️ Ejecución del contenedor
 ```bash
 docker run -p 8000:80 pokeapi-backend
 ```
 
 Accede luego a: http://localhost:8000/pokemon/25
 
-## Testing
+## 🧪 Testing
 
 Este proyecto incluye pruebas unitarias con PHPUnit. Para ejecutarlas:
 
@@ -94,7 +94,7 @@ Este proyecto incluye pruebas unitarias con PHPUnit. Para ejecutarlas:
 vendor/bin/phpunit tests
 ```
 
-## Dependencias
+## 📦 Dependencias
 
 - PHP 8.2
 - Apache
@@ -102,7 +102,7 @@ vendor/bin/phpunit tests
 - PHPUnit ^10
 - PokeAPI (consumo externo)
 
-## Autor
+## 👨‍💻 Autor
 
 Desarrollado por Alejandro Sanmiguel  
 📧 alejandrosanmiguel0222@gmail.com
